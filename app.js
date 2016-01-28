@@ -9197,16 +9197,19 @@ var PS = { };
       if (_31 instanceof UpgradesTab) {
           return "Upgrades";
       };
+      if (_31 instanceof AdvanceTab) {
+          return "Advance";
+      };
+      if (_31 instanceof PopulationTab) {
+          return "Population";
+      };
       if (_31 instanceof HeroesTab) {
           return "Heroes";
       };
       if (_31 instanceof TechTreeTab) {
           return "Tech Tree";
       };
-      if (_31 instanceof AdvanceTab) {
-          return "Advance";
-      };
-      throw new Error("Failed pattern match at Types line 115, column 1 - line 121, column 1: " + [ _31.constructor.name ]);
+      throw new Error("Failed pattern match at Types line 115, column 1 - line 122, column 1: " + [ _31.constructor.name ]);
   });                                                                 
   var serializeNumber = new Serialize(Util.oneDecimal);
   var serializeInt = new Serialize(Prelude.show(Prelude.showInt));
@@ -9250,7 +9253,7 @@ var PS = { };
       if (_38 instanceof Science2) {
           return serialize(serializeInt)(_38.value0);
       };
-      throw new Error("Failed pattern match at Types line 271, column 1 - line 283, column 1: " + [ _38.constructor.name ]);
+      throw new Error("Failed pattern match at Types line 272, column 1 - line 284, column 1: " + [ _38.constructor.name ]);
   });
   var serializeUpgrades = new Serialize(function (_39) {
       return "{ \"misc1\": " + (serialize(serializeUpgrade)(_39.misc1) + (", \"misc2\": " + (serialize(serializeUpgrade)(_39.misc2) + (", \"tech1\": " + (serialize(serializeUpgrade)(_39.tech1) + (", \"tech2\": " + (serialize(serializeUpgrade)(_39.tech2) + (", \"phil1\": " + (serialize(serializeUpgrade)(_39.phil1) + (", \"phil2\": " + (serialize(serializeUpgrade)(_39.phil2) + (", \"poli1\": " + (serialize(serializeUpgrade)(_39.poli1) + (", \"poli2\": " + (serialize(serializeUpgrade)(_39.poli2) + (", \"science1\": " + (serialize(serializeUpgrade)(_39.science1) + (", \"science2\": " + (serialize(serializeUpgrade)(_39.science2) + "}")))))))))))))))))));
@@ -9335,7 +9338,7 @@ var PS = { };
       if (Prelude.otherwise) {
           return "Your civilization can't count this high!";
       };
-      throw new Error("Failed pattern match at Types line 214, column 1 - line 238, column 1: " + [ n.constructor.name ]);
+      throw new Error("Failed pattern match at Types line 215, column 1 - line 239, column 1: " + [ n.constructor.name ]);
   });                                                       
   var prettify = function (dict) {
       return dict.prettify;
@@ -9461,7 +9464,7 @@ var PS = { };
       if (_32 instanceof Solar) {
           return "Solar";
       };
-      throw new Error("Failed pattern match at Types line 183, column 1 - line 199, column 1: " + [ _32.constructor.name ]);
+      throw new Error("Failed pattern match at Types line 184, column 1 - line 200, column 1: " + [ _32.constructor.name ]);
   });                                               
   var serializeAge = new Serialize(Prelude.show(ageShow));
   exports["Stone"] = Stone;
@@ -11732,7 +11735,7 @@ var PS = { };
               if (!_11) {
                   return [ Util.mkClass("upgrade disabled") ];
               };
-              throw new Error("Failed pattern match at Main line 229, column 1 - line 230, column 1: " + [ _11.constructor.name ]);
+              throw new Error("Failed pattern match at Main line 230, column 1 - line 231, column 1: " + [ _11.constructor.name ]);
           })());
       };
   };
@@ -11831,7 +11834,7 @@ var PS = { };
                               return Data_Lens_Setter.set(Lenses.message(Data_Profunctor_Strong.strongFn))("Upgraded " + Upgrades.upgradeName(_9.value0)(state.age))(state);
                           });
                       };
-                      throw new Error("Failed pattern match at Main line 240, column 1 - line 241, column 1: " + [ _21.constructor.name ]);
+                      throw new Error("Failed pattern match at Main line 241, column 1 - line 242, column 1: " + [ _21.constructor.name ]);
                   });
               });
           }));
@@ -11847,7 +11850,7 @@ var PS = { };
               return Halogen_Query.modify(Data_Lens_Setter.set(Lenses.age(Data_Profunctor_Strong.strongFn))(Age.nextAge(_6.age)));
           }));
       };
-      throw new Error("Failed pattern match at Main line 240, column 1 - line 241, column 1: " + [ _9.constructor.name ]);
+      throw new Error("Failed pattern match at Main line 241, column 1 - line 242, column 1: " + [ _9.constructor.name ]);
   };
   var divider = Halogen_HTML_Elements_Indexed.span([ Util.mkClass("divide") ])([ Halogen_HTML.text(" | ") ]);
   var unlockViewTabs = function (state) {
@@ -11881,7 +11884,7 @@ var PS = { };
       if (state.view instanceof Types.TechTreeTab) {
           return techTreeComponent(state);
       };
-      throw new Error("Failed pattern match at Main line 158, column 1 - line 159, column 1: " + [ state.view.constructor.name ]);
+      throw new Error("Failed pattern match at Main line 159, column 1 - line 160, column 1: " + [ state.view.constructor.name ]);
   };
   var render = function (state) {
       var top = Halogen_HTML_Elements_Indexed.h1([ Halogen_HTML_Properties_Indexed.id_("title") ])([ Halogen_HTML.text("clicker builder: the "), Halogen_HTML_Elements_Indexed.span([ Util.mkClass(Prelude.show(Types.ageShow)(state.age)) ])([ Halogen_HTML.text(Prelude.show(Types.ageShow)(state.age)) ]), Halogen_HTML.text(" Age.") ]);
@@ -11896,7 +11899,7 @@ var PS = { };
           };
           throw new Error("Failed pattern match at Main line 42, column 1 - line 43, column 1: " + [ _32.constructor.name ]);
       })() ]);
-      var bottom = Halogen_HTML_Elements_Indexed.div([ Halogen_HTML_Properties_Indexed.id_("bottom") ])([ Halogen_HTML_Elements.h3_([ Halogen_HTML.text("About") ]), Util.renderParagraphs(Age.ageDescription(state.age)), Halogen_HTML_Elements.h3_([ Halogen_HTML.text("Changelog") ]), Halogen_HTML_Elements.p_([ Halogen_HTML.text("First beta!") ]), Halogen_HTML_Elements.h3_([ Halogen_HTML.text("Upcoming") ]), Halogen_HTML_Elements.p_([ Halogen_HTML.text("Bronze Age, population, disasters, graphical representation.") ]), Halogen_HTML_Elements.h3_([ Halogen_HTML.text("Credits") ]), Util.renderParagraphs([ "Font: Silkscreen by Jason Kottke.", "Icons: fontawesome by Dave Gandy.", "Ideas and feedback: Himrin." ]) ]);
+      var bottom = Halogen_HTML_Elements_Indexed.div([ Halogen_HTML_Properties_Indexed.id_("bottom") ])([ Halogen_HTML_Elements.h3_([ Halogen_HTML.text("About") ]), Util.renderParagraphs(Age.ageDescription(state.age)), Halogen_HTML_Elements.h3_([ Halogen_HTML.text("Changelog") ]), Util.renderParagraphs([ "Bronze age implemented, population, disasters, graphics" ]), Halogen_HTML_Elements.h3_([ Halogen_HTML.text("Upcoming") ]), Halogen_HTML_Elements.p_([ Halogen_HTML.text("Iron Age, heroes.") ]), Halogen_HTML_Elements.h3_([ Halogen_HTML.text("Credits") ]), Util.renderParagraphs([ "Font: Silkscreen by Jason Kottke.", "Icons: fontawesome by Dave Gandy.", "Ideas and feedback: Himrin." ]) ]);
       return Halogen_HTML_Elements_Indexed.div([ Halogen_HTML_Properties_Indexed.id_("body"), Util.mkClass(Prelude.show(Types.ageShow)(state.age)) ])([ Halogen_HTML_Elements_Indexed.a([ Halogen_HTML_Properties_Indexed.href("https://github.com/thimoteus/clicker-builder"), Halogen_HTML_Properties_Indexed.id_("fork-me") ])([ Halogen_HTML_Elements_Indexed.img([ Halogen_HTML_Properties_Indexed.src("https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"), Halogen_HTML_Properties_Indexed.alt("Fork me on Github") ]) ]), Halogen_HTML_Elements_Indexed.div([ Halogen_HTML_Properties_Indexed.id_("container") ])([ top, side, main$prime, bottom ]) ]);
   };
   var $$interface = Halogen_Component.component(render)($$eval);
